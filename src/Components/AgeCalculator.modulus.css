@@ -40,3 +40,16 @@ button{
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.arrow-down{
+    color: white;
+    font-size: 1rem;
+}
+.outputs{
+    margin-top: 2rem;
+}
+.output{
+    font-size: 1.5rem;
+}
+span{
+    color: #020000dc;
+}
