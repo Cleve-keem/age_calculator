@@ -1,0 +1,42 @@
+.container{
+    padding: 1.5rem;
+    background-color: #fff;
+    border-bottom-right-radius: 3rem;
+}
+.top-section{
+    position: relative;
+}
+.inputs{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+}
+input{
+    width: 70px;
+    padding: 5px;
+    outline: none;
+}
+label{
+    text-transform: uppercase;
+    font-size: 10px;
+    margin-bottom: 0.06rem;
+}
+button{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    border: none;
+    background-color: #222;
+    border-radius: 50%;
+    /* padding: 1rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: -4.5rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
