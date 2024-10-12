@@ -18,7 +18,9 @@
 input{
     width: 70px;
     padding: 5px;
-    outline: none;
+}
+input:focus, input.valid{
+    border: 3px solid purple;
 }
 label{
     text-transform: uppercase;
@@ -52,4 +54,8 @@ button{
 }
 span{
     color: #020000dc;
+}
+.error{
+    color: #f00;
+    font-size: 10px;
 }
