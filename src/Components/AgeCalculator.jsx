@@ -25,9 +25,9 @@ function AgeCalculator() {
             newErrors.month = "Invalid Month";
         }
 
-        if(!year || year < 1900 || month > currentYear){
+        if(!year || year < 1900 || year > currentYear){
             isValid = false;
-            newErrors.month = "Invalid Month";
+            newErrors.year = `Year btn 1900-${currentYear}`;
         }
 
         setError(newErrors);
@@ -45,6 +45,27 @@ function AgeCalculator() {
         }
 
         const birthday = new Date(`${year}-${month}-${day}`);
+        const today = new Date();
+
+        const ageDay = today.getDate() - birthday.getDate();
+        const ageMonth = today.getMonth() - birthday.getMonth();
+        const ageYear = today.getFullYear() - birthday.getFullYear();
+
+        if (ageMonth < 0 ){
+            ageMonth += 12
+            ageYear--;
+        }
+        
+        if(ageDay < 0 ){
+            const previousMonthDays = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+            ageDay += previousMonthDays;
+            ageMonth--;
+        }
+        
+        setDayOutput(ageDay);
+        setMonthOutput(ageMonth);
+        setYearOutput(ageYear);
+        
     }
 
     // const handleDayChange = (e) => {
@@ -132,9 +153,9 @@ function AgeCalculator() {
                                 name="day"
                                 id="day"
                                 value={day}
-                                onChange={handleDayChange}
+                                onChange={ (e) =>  setDay(e.target.value) }
                             />
-                            <p className="error">{errorDay}</p>
+                            <p className="error">{error.day}</p>
                         </div>
                         <div className="input">
                             <label htmlFor="month">Month</label>
@@ -143,9 +164,9 @@ function AgeCalculator() {
                                 name="month"
                                 id="month"
                                 value={month}
-                                onChange={handleMonthChange}
+                                onChange={(e) => setMonth(e.target.value) }
                             />
-                            <p className="error">{errorMonth}</p>
+                            <p className="error">{error.month}</p>
                         </div>
                         <div className="input">
                             <label htmlFor="year">Year</label>
@@ -154,9 +175,9 @@ function AgeCalculator() {
                                 name="year"
                                 id="year"
                                 value={year}
-                                onChange={handleYearChange}
+                                onChange={(e) => setYear(e.target.value) }
                             />
-                            <p className="error">{errorYear}</p>
+                            <p className="error">{error.year}</p>
                         </div>
                     </div>
                     <button className="submit" onClick={calculateAge}>
