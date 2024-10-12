@@ -46,10 +46,11 @@ function AgeCalculator() {
 
         const birthday = new Date(`${year}-${month}-${day}`);
         const today = new Date();
+        console.log(today);
 
-        const ageDay = today.getDate() - birthday.getDate();
-        const ageMonth = today.getMonth() - birthday.getMonth();
-        const ageYear = today.getFullYear() - birthday.getFullYear();
+        let ageDay = today.getDate() - birthday.getDate();
+        let ageMonth = today.getMonth() - birthday.getMonth();
+        let ageYear = today.getFullYear() - birthday.getFullYear();
 
         if (ageMonth < 0 ){
             ageMonth += 12
@@ -68,78 +69,80 @@ function AgeCalculator() {
         
     }
 
-    // const handleDayChange = (e) => {
-    //     const value = e.target.value;
-    //     setDay(value);
-    //     if (value < 1 || value > 31) {
-    //         setErrorDay("Invalid day");
-    //         isValid = false;
-    //     } else {
-    //         setErrorDay('');
-    //     }
-    // };
+    // This method will also work perfectly
 
-    // const handleMonthChange = (e) => {
-    //     const value = e.target.value;
-    //     setMonth(value);
-    //     if (value < 1 || value > 12) {
-    //         setErrorMonth("Invalid month");
-    //         isValid = false;
-    //     } else {
-    //         setErrorMonth('');
-    //     }
-    // };
+ /**{   const handleDayChange = (e) => {
+        const value = e.target.value;
+        setDay(value);
+        if (value < 1 || value > 31) {
+            setErrorDay("Invalid day");
+            isValid = false;
+        } else {
+            setErrorDay('');
+        }
+    };
+
+    const handleMonthChange = (e) => {
+        const value = e.target.value;
+        setMonth(value);
+        if (value < 1 || value > 12) {
+            setErrorMonth("Invalid month");
+            isValid = false;
+        } else {
+            setErrorMonth('');
+        }
+    };
     
-    // const handleYearChange = (e) => {
-    //     const value = e.target.value;
-    //     setYear(value);
-    //     if (value < 1970 || value > currentYear) {
-    //         setErrorYear(`Year 1970-${currentYear}`);
-    //         isValid = false;
-    //     } else {
-    //         setErrorYear('');
-    //     }
-    // };
+    const handleYearChange = (e) => {
+        const value = e.target.value;
+        setYear(value);
+        if (value < 1970 || value > currentYear) {
+            setErrorYear(`Year 1970-${currentYear}`);
+            isValid = false;
+        } else {
+            setErrorYear('');
+        }
+    };
 
-    // const calculateAge = () => {
-    //     isValid = true;
+    const calculateAge = () => {
+        isValid = true;
 
-    //     if (errorDay || errorMonth || errorYear) {
-    //         isValid = false;
-    //     }
+        if (errorDay || errorMonth || errorYear) {
+            isValid = false;
+        }
 
-    //     const birthday = new Date(`${year}-${month}-${day}`);
-    //     if (isNaN(birthday)) {
-    //         setErrorDay("Invalid date");
-    //         isValid = false;
-    //     }
+        const birthday = new Date(`${year}-${month}-${day}`);
+        if (isNaN(birthday)) {
+            setErrorDay("Invalid date");
+            isValid = false;
+        }
 
-    //     if (isValid) {
-    //         const today = new Date();
-    //         let ageYear = today.getFullYear() - birthday.getFullYear();
-    //         let ageMonth = today.getMonth() - birthday.getMonth();
-    //         let ageDay = today.getDate() - birthday.getDate();
+        if (isValid) {
+            const today = new Date();
+            let ageYear = today.getFullYear() - birthday.getFullYear();
+            let ageMonth = today.getMonth() - birthday.getMonth();
+            let ageDay = today.getDate() - birthday.getDate();
 
-    //         if (ageMonth < 0 || (ageMonth === 0 && ageDay < 0)) {
-    //             ageYear--;
-    //             ageMonth += 12;
-    //         }
+            if (ageMonth < 0 || (ageMonth === 0 && ageDay < 0)) {
+                ageYear--;
+                ageMonth += 12;
+            }
 
-    //         if (ageDay < 0) {
-    //             const prevMonthDays = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
-    //             ageDay += prevMonthDays;
-    //             ageMonth--;
-    //         }
+            if (ageDay < 0) {
+                const prevMonthDays = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+                ageDay += prevMonthDays;
+                ageMonth--;
+            }
 
-    //         setDayOutput(ageDay);
-    //         setMonthOutput(ageMonth);
-    //         setYearOutput(ageYear);
-    //     } else {
-    //         setDayOutput('- -');
-    //         setMonthOutput('- -');
-    //         setYearOutput('- -');
-    //     }
-    // };
+            setDayOutput(ageDay);
+            setMonthOutput(ageMonth);
+            setYearOutput(ageYear);
+        } else {
+            setDayOutput('- -');
+            setMonthOutput('- -');
+            setYearOutput('- -');
+        }
+    }; **/
 
     return (
         <div className="container">
