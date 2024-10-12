@@ -26,7 +26,7 @@ function AgeCalculator() {
         const value = e.target.value;
         setMonth(value);
         if (value < 1 || value > 12){
-            setErrorMonth();
+            setErrorMonth("Pls enter the valid Month");
         }
         else{
             setErrorMonth('');
